@@ -1,12 +1,22 @@
-import { Box, Typography } from '@mui/material'
+import { Box, TextField, Typography } from '@mui/material'
 import React from 'react'
 
 const TareasEdit = () => {
   return (
-    <Box>
-                    <Typography variant="body2" color="grey">{"tarea.fecha"}</Typography>
-                    <Typography variant="h5" color="black" mb={3}>{"tarea.titulo"}</Typography>                 
-                    <Typography variant="body2" color="grey">{"tarea.descripcion"}</Typography>   
+    <Box sx={{
+      display:'flex',
+      flexDirection:'column'
+    }}>
+       <TextField  
+         id="titulo"  
+         type='text' 
+         sx={{mb:3, mt:3}} />  
+       <TextField
+         id="descripcion"                 
+         type='text' 
+         multiline
+         rows={24}
+       />
     </Box>
   )
 }

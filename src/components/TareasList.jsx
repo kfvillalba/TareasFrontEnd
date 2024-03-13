@@ -1,6 +1,6 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Input, List, ListItem, ListItemButton, ListItemText, Typography, FormControl, Box, Button, IconButton } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import InputAdornment from '@mui/material/InputAdornment';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
@@ -11,9 +11,13 @@ const TareasList = () => {
       titulo : "Cluod", descripcion: "Hola cloud", fecha: "12/03/2024"
     },
     {
-      titulo : "Matematica", descripcion: "Hola matematica", fecha: "12/03/2024"
+      titulo : "Matematica",
+       descripcion: "Hola matematicasssss ssssssssssssssss sssssssssssssssssssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssss ssssssssssssssssss ssssssssssssssssssssssss sssssssssssssss",
+      fecha: "12/03/2024"
     }
   ])
+
+
 
   return (
 <Box>
@@ -37,8 +41,7 @@ const TareasList = () => {
       sx={
     {display:"flex",     
     flexDirection: "column",
-    alignItems:"center",   
-    
+    alignItems:"center",  
   }
     }>
           
@@ -62,8 +65,8 @@ const TareasList = () => {
                 <ListItemButton>
                   <Grid xs={12}>                  
                     <Typography textAlign={'right'} variant="body2" color="grey">{tarea.fecha}</Typography>
-                    <Typography variant="h5" color="black">{tarea.titulo}</Typography>                 
-                    <Typography variant="body2" color="grey">{tarea.descripcion}</Typography>   
+                    <Typography variant="h5" color="black">{tarea.titulo.substring(0,20)}</Typography>                 
+                    <Typography maxWidth={"300px"} variant="body2" color="grey">{tarea.descripcion.substring(0,80)} </Typography>   
                   </Grid>
                 </ListItemButton>                
             </ListItem>

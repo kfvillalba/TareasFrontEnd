@@ -3,7 +3,6 @@ import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -23,6 +22,8 @@ import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
 import TareasList from './TareasList';
 import TareasEdit from './TareasEdit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 const drawerWidth = 300;
@@ -86,8 +87,8 @@ export default function CategoriaSideNavBar() {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
-            boxSizing: 'border-box',
-            
+            boxSizing: 'border-box',          
+                        
           },
         }}
         variant="persistent"
@@ -106,47 +107,59 @@ export default function CategoriaSideNavBar() {
                 <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
-            </ListItem> 
+            </ListItem>    
         </List>
-        <Divider />
-              
-        <List>
-            <ListItem disablePadding>
-            <ListItemButton>
-                <ListItemText primary="Categorias" />
-                <IconButton onClick={()=>{
-                    setCategorias([...categorias,"Nuevo"])
-                }}>
-                <AddCircleOutlinedIcon sx={{mr:1}} />
-                </IconButton>
-            </ListItemButton>
-            </ListItem>
 
-            <List>
-            {categorias.map((text, index) => (
-                <ListItem key={text} disablePadding>
-                    <ListItemButton>                    
-                        <ListItemText primary={text} />
-                        <Badge badgeContent={index} color="primary" sx={{mr:3}}>                            
-                        </Badge>
-                    </ListItemButton>
-                </ListItem>
-            ))}
-            </List>
-        </List>
-      
-        <Divider/>
-                  
-        <List>                
+        <Divider />
+
+        <List>
+
         <ListItem disablePadding>
-            <ListItemButton>
-                <ListItemIcon>
-                <LogoutIcon /> 
-                </ListItemIcon>
-                <ListItemText primary="LogOut" />
-            </ListItemButton>   
-        </ListItem>          
+          <ListItemButton disablePadding>
+              <ListItemText primary={<Typography variant="h5" color="initial" textAlign={"center"}>Categoria</Typography>} />              
+              <IconButton onClick={()=>{
+                  setCategorias([...categorias,"Nuevo"])
+              }}>
+              <AddCircleOutlinedIcon/>
+              </IconButton>
+          </ListItemButton>
+        </ListItem>
         </List>
+
+        <Box sx = {{overflowY:"auto"}}>
+          <List sx={{height:"510px"}}>
+          {categorias.map((text, index) => (
+              <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <IconButton aria-label="delete-category">
+                      <DeleteIcon/>
+                    </IconButton>                    
+                      <ListItemText primary={<Typography variant="body1" color="initial" textAlign={"start"}>{text}</Typography>} />
+                      <Badge badgeContent={index} color="primary" sx={{mr:3}}>                            
+                      </Badge>
+                  </ListItemButton>
+              </ListItem>
+          ))}
+          </List>
+          
+        </Box>              
+      
+
+        <Box sx={{
+          mt:"auto"
+        }}>
+        <Divider/>
+          <List>                
+          <ListItem disablePadding>
+              <ListItemButton>
+                  <ListItemIcon>
+                  <LogoutIcon /> 
+                  </ListItemIcon>
+                  <ListItemText primary="LogOut" />
+              </ListItemButton>   
+          </ListItem>          
+          </List>
+        </Box>                  
       
                     
       </Drawer>
@@ -155,9 +168,7 @@ export default function CategoriaSideNavBar() {
       <Main open={open}>     
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid  xs={4}>
-          
             <TareasList/>
-
         </Grid>
         <Grid  xs={8}>
             <TareasEdit/>
