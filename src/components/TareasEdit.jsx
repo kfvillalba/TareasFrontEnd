@@ -1,5 +1,9 @@
-import { Box, TextField, Typography } from '@mui/material'
+import { Box, TextField} from '@mui/material'
 import React from 'react'
+import FormCategoria from './FormCategoria'
+
+
+ 
 
 const TareasEdit = () => {
   return (
@@ -14,9 +18,11 @@ const TareasEdit = () => {
        <TextField
          id="descripcion"                 
          type='text' 
-         multiline
-         rows={24}
+         multiline         
+         rows={20}  
+               
        />
+       
     </Box>
   )
 }
