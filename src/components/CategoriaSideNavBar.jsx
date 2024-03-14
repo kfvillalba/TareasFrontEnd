@@ -103,7 +103,8 @@ export default function CategoriaSideNavBar() {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
-            boxSizing: 'border-box', 
+            boxSizing: 'border-box',
+            bgcolor:"red" 
           },
         }}
         variant="persistent"

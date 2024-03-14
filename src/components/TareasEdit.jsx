@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, TextField} from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormCategoria from './FormCategoria'
 import { useForm } from 'react-hook-form'
 import ReactQuill from 'react-quill'
@@ -10,34 +10,44 @@ const TareasEdit = () => {
 
   const {
     register,
-    handleSubmit,        
+    handleSubmit,
+    watch,        
     formState: { errors },
   } = useForm()
+
+  useEffect(() => {
+    register("descripcion");
+  }, [register]);
      
   const [userInfo, setuserInfo] = useState({
     titulo: '',
     description: '',
    });
+
+   const onChangeValue = (e) => {
+    setuserInfo({
+      ...userInfo,
+      [e.target.name]:e.target.value
+    });
+  }
    const ontitulo = (value) => {
     setuserInfo({ ...userInfo,
       titulo:value
     });
-    console.log(value)
+    
     }
-  const ondescription = (value) => {
+  const ondescription = (data) => {
     setuserInfo({ ...userInfo,
-      description:value
+      description:data
     });
-    console.log(value)
-    }
+  }
+  const editorContent = watch("descripcion");
+  
   return (
     <Box sx={{
-      
-      
     }}>
       <form onSubmit={handleSubmit((data)=>{
         console.log(data) 
-        ontitulo(data.titulo)           
       })}>
             <FormControl sx={{mt:3}}>                
                 <TextField
@@ -55,16 +65,17 @@ const TareasEdit = () => {
                      height:"61vh",
                      overflowY:"auto"
                 }}>
-                <ReactQuill
-                  theme="snow"
-                  value={userInfo.description}
-                  onSubmit={ondescription}
-                  placeholder={"Escribe la descripción aquí..."}
-                  modules={modules('t1')}
-                  formats={formats}  
-                               
-                  />             
-                </Box>   
+                 <ReactQuill
+                   theme="snow"
+                   name="descripcion"                  
+                   value={ondescription}
+                   onChange={watch("descripcion")}
+                   placeholder={"Escribe la descripción aquí..."}
+                   modules={modules('t1')}
+                   formats={formats} 
+                   />             
+                
+                 </Box>  
                               
             </FormControl>
             <Box sx={{
