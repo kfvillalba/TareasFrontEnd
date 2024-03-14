@@ -1,13 +1,14 @@
 import React from 'react'
 import CategoriaSideNavBar from './components/CategoriaSideNavBar'
-import FormCategoria from './components/FormCategoria'
+
+import TareasEdit from './components/TareasEdit'
+
 
 
 export default function App() {
   return (
     <div>
-      <CategoriaSideNavBar/>
-      
+      <CategoriaSideNavBar/>      
     </div>
   )
 }

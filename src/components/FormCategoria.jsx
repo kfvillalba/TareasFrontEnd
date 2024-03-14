@@ -28,13 +28,14 @@ const FormCategoria = () => {
             <FormControl>                
                 <TextField
                 id='nombreCategoria' 
-                variant='filled'               
+                autoComplete='off'
+                variant='outlined'               
                 label="Nombre"
                 {...register("nombre",{required:"Campo obligatorio"})}
                 helperText= {errors?.nombre? errors.nombre.message: ""}
                 error ={errors?.nombre? true:false}
                 />                
-                <Button type='submit' variant='contained' sx={{mt:3}} >Guardar               
+                <Button type='submit' variant='contained' color="primary" sx={{mt:3}} >Guardar               
                 </Button>
             </FormControl>
         </form>

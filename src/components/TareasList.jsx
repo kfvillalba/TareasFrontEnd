@@ -77,7 +77,7 @@ const TareasList = () => {
                   <Grid xs={12}>                  
                     <Typography textAlign={'right'} variant="body2" color="grey">{tarea.fecha}</Typography>
                     <Typography variant="h5" color="black">{tarea.titulo.substring(0,20)}</Typography>                 
-                    <Typography variant="body2" color="grey">{tarea.descripcion.substring(0,80)} </Typography>   
+                    <Typography variant="body2" color="grey">{tarea.descripcion.substring(0,80)+ "..."} </Typography>   
                   </Grid>
                 </ListItemButton>                
             </ListItem>

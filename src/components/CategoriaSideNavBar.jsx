@@ -26,7 +26,7 @@ import ListCategory from './ListCategory';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import FormTarea from './FormTarea';
+
 
 
 
@@ -36,6 +36,9 @@ const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
+    position:"relative",
+    height:"100vh",
+    width:"100%",
     flexGrow: 1,     
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
@@ -185,6 +188,7 @@ export default function CategoriaSideNavBar() {
                 </Typography>
                 <form >
                 <Input 
+                    autoComplete='off'
                     id="input-with-icon-adornment"
                     startAdornment={
                       <InputAdornment position="start">
@@ -196,12 +200,12 @@ export default function CategoriaSideNavBar() {
                 </form>
               </Box>
             </Box >
-              {registerTarea? <FormTarea/>:<TareasList/>} 
+              <TareasList/> 
           </Box>
         </Grid>
 
         <Grid  xs={8}>
-            <TareasEdit/>
+            {registerTarea? <TareasEdit/> : ""}
         </Grid>
         
       </Grid>
