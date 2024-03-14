@@ -117,7 +117,7 @@ export default function CategoriaSideNavBar() {
         <ListItem disablePadding>
           <ListItemButton disablePadding>
               <ListItemText primary={<Typography variant="h5" color="initial" textAlign={"center"}>Categoria</Typography>} />              
-              <IconButton onClick={()=>{
+              <IconButton sx={{mr:2.4}} onClick={()=>{
                   setCategorias([...categorias,"Nuevo"])
               }}>
               <AddCircleOutlinedIcon/>
