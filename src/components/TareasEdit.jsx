@@ -1,6 +1,5 @@
 import { Box, Button, FormControl, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import FormCategoria from './FormCategoria'
 import { useForm } from 'react-hook-form'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
@@ -11,6 +10,7 @@ const TareasEdit = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm()
 
@@ -18,22 +18,8 @@ const TareasEdit = () => {
     register('descripcion')
   }, [register])
 
-  const [userInfo, setuserInfo] = useState({
-    titulo: '',
-    description: '',
-  })
-
-  const onChangeValue = (e) => {
-    setuserInfo({
-      ...userInfo,
-      [e.target.name]: e.target.value,
-    })
-  }
-  const ontitulo = (value) => {
-    setuserInfo({ ...userInfo, titulo: value })
-  }
-  const ondescription = (data) => {
-    setuserInfo({ ...userInfo, description: data })
+  const ondescription = (editorState) => {
+    setValue("descripcion",editorState)
   }
   const editorContent = watch('descripcion')
 
@@ -65,8 +51,8 @@ const TareasEdit = () => {
             <ReactQuill
               theme='snow'
               name='descripcion'
-              value={ondescription}
-              onChange={watch('descripcion')}
+              value={editorContent}
+              onChange={ondescription}
               placeholder={'Escribe la descripción aquí...'}
               modules={modules('t1')}
               formats={formats}

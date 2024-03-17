@@ -52,7 +52,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   })
 )
 
-export default function CategoriaSideNavBar() {
+export default function CategoriaSideNavBar({categorias}) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(true)
   const [registerCategory, setRegisterCategory] = React.useState(false)
@@ -135,7 +135,7 @@ export default function CategoriaSideNavBar() {
           </ListItem>
         </List>
 
-        {registerCategory ? <FormCategoria /> : <ListCategory />}
+        {registerCategory ? <FormCategoria /> : <ListCategory categorias={categorias} />}
 
         <Box
           sx={{
@@ -219,7 +219,7 @@ export default function CategoriaSideNavBar() {
                   </form>
                 </Box>
               </Box>
-              <TareasList />
+              <TareasList categorias={categorias} />
             </Box>
           </Box>
 
@@ -234,7 +234,7 @@ export default function CategoriaSideNavBar() {
               padding: 0,
             }}
           >
-            {registerTarea ? <TareasEdit /> : ''}
+            {registerTarea? <TareasEdit /> : ""}
           </Box>
         </Box>
       </Main>
