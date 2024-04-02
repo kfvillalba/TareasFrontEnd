@@ -11,87 +11,15 @@ import {
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 
-const TareasList = () => {
-  const [categorias, setCategorias] = React.useState([
-    {
-      titulo: 'Cluod',
-      descripcion: 'Hola cloud',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-    {
-      titulo: 'Matematica',
-      descripcion:
-        'Hola matematic asssss ssssssss ssssssss sssssssss ssssssssssss ssssssssss ssssssssss ssssssssssssssss sssssssssss ssssssssss ssssssss ssssssssss ssssss ssssssss ssssssssss ssss sssssssssss',
-      fecha: '12/03/2024',
-    },
-  ])
-
+const TareasList = ({categorias}) => {    
+  let catFilter = categorias.filter(categoria => categoria.id ==="1")
+  
   return (
     <Box sx={{ overflowY: 'auto', height: '78vh' }}>
       <List>
-        {categorias.map((tarea, titulo) => (
+        {catFilter[0].tareas?.map((tarea) => (
           <ListItem
-            key={titulo}
+            key={tarea.id}
             sx={{
               paddingX: 0.5,
               paddingY: 0,
@@ -124,6 +52,7 @@ const TareasList = () => {
                   <IconButton color='error' sx={{ paddingY: 0 }}>
                     <CloseIcon fontSize='medium' />
                   </IconButton>
+<<<<<<< HEAD
                   <Typography
                     fontSize={17}
                     fontFamily='Arial, sans-serif'
@@ -135,6 +64,14 @@ const TareasList = () => {
                 </Box>
                 <Typography variant='body2' fontSize={13} color='grey'>
                   {tarea.descripcion.substring(0, 78) + '...'}{' '}
+=======
+                  <Typography variant='h5' color='black'>
+                    {tarea.titulo}
+                  </Typography>
+                </Box>
+                <Typography variant='body2' color='grey'>
+                  {tarea.descripcion.substring(0, 60) + '...'}
+>>>>>>> 768feb40965bcd6e2a4a95cb272270f47851858f
                 </Typography>
               </Grid>
             </ListItemButton>
