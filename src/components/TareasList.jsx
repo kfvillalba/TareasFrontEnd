@@ -87,7 +87,7 @@ const TareasList = () => {
   ])
 
   return (
-    <Box sx={{ overflowY: 'auto', height: '82vh' }}>
+    <Box sx={{ overflowY: 'auto', height: '78vh' }}>
       <List>
         {categorias.map((tarea, titulo) => (
           <ListItem
@@ -110,6 +110,7 @@ const TareasList = () => {
                   ml={22}
                   variant='body2'
                   color='grey'
+                  fontSize={10}
                 >
                   {tarea.fecha}
                 </Typography>
@@ -123,12 +124,17 @@ const TareasList = () => {
                   <IconButton color='error' sx={{ paddingY: 0 }}>
                     <CloseIcon fontSize='medium' />
                   </IconButton>
-                  <Typography variant='h5' color='black'>
+                  <Typography
+                    fontSize={17}
+                    fontFamily='Arial, sans-serif'
+                    fontWeight='bold'
+                    color='black'
+                  >
                     {tarea.titulo.substring(0, 20)}
                   </Typography>
                 </Box>
-                <Typography variant='body2' color='grey'>
-                  {tarea.descripcion.substring(0, 60) + '...'}{' '}
+                <Typography variant='body2' fontSize={13} color='grey'>
+                  {tarea.descripcion.substring(0, 78) + '...'}{' '}
                 </Typography>
               </Grid>
             </ListItemButton>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CategoriaSideNavBar from './components/CategoriaSideNavBar'
+import './index.css'
 
 export default function App() {
   //   useEffect(() => {

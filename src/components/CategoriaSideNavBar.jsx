@@ -34,9 +34,8 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     position: 'relative',
     height: '100vh',
     width: '100%',
-    padding: '0px',
     flexGrow: 1,
-
+    padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -123,13 +122,17 @@ export default function CategoriaSideNavBar() {
             <ListItemButton>
               <ListItemText
                 primary={
-                  <Typography variant='h5' textAlign={'center'} color={'white'}>
+                  <Typography
+                    variant='h5'
+                    textAlign={'center'}
+                    sx={{ color: '#fff9' }}
+                  >
                     Categoria
                   </Typography>
                 }
               />
               <IconButton sx={{ mr: 2.4 }} onClick={handleRegisterCategory}>
-                <AddCircleOutlinedIcon sx={{ color: '#fff' }} />
+                <AddCircleOutlinedIcon sx={{ color: '#fff9' }} />
               </IconButton>
             </ListItemButton>
           </ListItem>
@@ -156,31 +159,10 @@ export default function CategoriaSideNavBar() {
         </Box>
       </Drawer>
 
-      <Main open={open} sx={{ margin: '0px' }}>
-        <Box
-          className='row'
-          sx={{
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 0,
-          }}
-        >
-          <Box
-            sx={{
-              position: 'relative',
-              height: '100%',
-              width: '40%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-              bgcolor: 'gray',
-            }}
-          >
-            <Box>
+      <Main open={open} sx={{ bgcolor: '#EEEEEE' }}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid xs={4} sx={{ borderRight: '1px solid grey' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <Box>
                 <Box
                   sx={{
@@ -189,7 +171,9 @@ export default function CategoriaSideNavBar() {
                     justifyContent: 'space-evenly',
                   }}
                 >
-                  <Typography variant='h5'>Calculo Diferencial</Typography>
+                  <Typography variant='h5' color={'initial'}>
+                    Calculo Diferencial
+                  </Typography>
                   <IconButton
                     aria-label='AddCircleIcon'
                     onClick={handleRegisterTarea}
@@ -206,37 +190,35 @@ export default function CategoriaSideNavBar() {
                 >
                   <Typography variant='body2'>{9} notas</Typography>
                   <form>
-                    <Input
-                      autoComplete='off'
-                      id='input-with-icon-adornment'
-                      startAdornment={
-                        <InputAdornment position='start'>
-                          <SearchIcon />
-                        </InputAdornment>
-                      }
-                      placeholder='Buscar una tarea'
-                    />
+                    <Box
+                      sx={{
+                        borderRadius: 5, // Modifica este valor según el radio de borde que desees
+                        border: '1px solid #ced4da', // Añade un borde para resaltar el contenedor
+                        alignItems: 'center',
+                        padding: '10px',
+                      }}
+                    >
+                      <Input
+                        fullWidth
+                        placeholder='Buscar una tarea'
+                        startAdornment={
+                          <InputAdornment position='start'>
+                            <SearchIcon />
+                          </InputAdornment>
+                        }
+                      />
+                    </Box>
                   </form>
                 </Box>
               </Box>
               <TareasList />
             </Box>
-          </Box>
+          </Grid>
 
-          <Box
-            sx={{
-              position: 'relative',
-              height: '100%',
-              width: '59%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-            }}
-          >
+          <Grid xs={8} sx={{ paddingLeft: '1.3rem' }}>
             {registerTarea ? <TareasEdit /> : ''}
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       </Main>
     </Box>
   )
