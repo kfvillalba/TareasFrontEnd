@@ -51,7 +51,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   })
 )
 
-export default function CategoriaSideNavBar({categorias}) {
+export default function CategoriaSideNavBar({ categorias }) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(true)
   const [registerCategory, setRegisterCategory] = React.useState(false)
@@ -138,7 +138,11 @@ export default function CategoriaSideNavBar({categorias}) {
           </ListItem>
         </List>
 
-        {registerCategory ? <FormCategoria /> : <ListCategory categorias={categorias} />}
+        {registerCategory ? (
+          <FormCategoria />
+        ) : (
+          <ListCategory categorias={categorias} />
+        )}
 
         <Box
           sx={{
@@ -214,28 +218,10 @@ export default function CategoriaSideNavBar({categorias}) {
               <TareasList categorias={categorias} />
             </Box>
           </Grid>
-
-<<<<<<< HEAD
           <Grid xs={8} sx={{ paddingLeft: '1.3rem' }}>
             {registerTarea ? <TareasEdit /> : ''}
           </Grid>
         </Grid>
-=======
-          <Box
-            sx={{
-              position: 'relative',
-              height: '100%',
-              width: '59%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-            }}
-          >
-            {registerTarea? <TareasEdit /> : ""}
-          </Box>
-        </Box>
->>>>>>> 768feb40965bcd6e2a4a95cb272270f47851858f
       </Main>
     </Box>
   )

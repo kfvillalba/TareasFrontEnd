@@ -11,9 +11,9 @@ import {
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 
-const TareasList = ({categorias}) => {    
-  let catFilter = categorias.filter(categoria => categoria.id ==="1")
-  
+const TareasList = ({ categorias }) => {
+  let catFilter = categorias.filter((categoria) => categoria.id === '1')
+
   return (
     <Box sx={{ overflowY: 'auto', height: '78vh' }}>
       <List>
@@ -52,7 +52,7 @@ const TareasList = ({categorias}) => {
                   <IconButton color='error' sx={{ paddingY: 0 }}>
                     <CloseIcon fontSize='medium' />
                   </IconButton>
-<<<<<<< HEAD
+
                   <Typography
                     fontSize={17}
                     fontFamily='Arial, sans-serif'
@@ -64,14 +64,6 @@ const TareasList = ({categorias}) => {
                 </Box>
                 <Typography variant='body2' fontSize={13} color='grey'>
                   {tarea.descripcion.substring(0, 78) + '...'}{' '}
-=======
-                  <Typography variant='h5' color='black'>
-                    {tarea.titulo}
-                  </Typography>
-                </Box>
-                <Typography variant='body2' color='grey'>
-                  {tarea.descripcion.substring(0, 60) + '...'}
->>>>>>> 768feb40965bcd6e2a4a95cb272270f47851858f
                 </Typography>
               </Grid>
             </ListItemButton>
